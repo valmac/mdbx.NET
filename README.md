@@ -1,33 +1,34 @@
 # mdbx.NET
 
-.NET binding(.NET Standard 2.0) of [libmdbx](https://github.com/leo-yuriev/libmdbx), succeeder of LMDB(Lightning Memory-Mapped Database).
+.NET bindings(.NET Standard 2.0) of [libmdbx](https://github.com/leo-yuriev/libmdbx), succeeder of LMDB(Lightning Memory-Mapped Database).
 
 [![Build status](https://ci.appveyor.com/api/projects/status/7nyn3s6fspk8j6o2/branch/master?svg=true)](https://ci.appveyor.com/project/wangjia184/mdbx-net/branch/master) [![NuGet version](https://img.shields.io/nuget/v/mdbx.NET.svg)](https://www.nuget.org/packages/mdbx.NET/) 
 
 ### License
 
-This project is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) but it includes the the `libmdbx` library of the ReOpenLDAP project which is licensed under the [The OpenLDAP Public License](http://www.openldap.org/software/release/license.html).
+This project is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
 
-The `libmdbx` library is shipped in the `native` directory along with the assembly.
+The `libmdbx` library is not shipped with this assembly. And the assembly will load `libmdbx` from the location below according to your platform and OS.
 ```
+/mdbx.NET.dll
 /native
-   ├──/windows
-   │   ├──/x86/mdbx.dll
-   │   ├──/x64/mdbx.dll
-   │   ├──/arm/
-   │   └──/arm64/
-   ├──/linux
-   │   ├──/x86/
-   │   ├──/x64/libmdbx.so
-   │   ├──/arm/
-   │   └──/arm64/
-   └──/osx
-       ├──/x86/
-       ├──/x64/
-       ├──/arm/
-       └──/arm64/
+  ├──/windows
+  │   ├──/x86/mdbx.dll
+  │   ├──/x64/mdbx.dll
+  │   ├──/arm/mdbx.dll
+  │   └──/arm64/mdbx.dll
+  ├──/linux
+  │   ├──/x86/libmdbx.so
+  │   ├──/x64/libmdbx.so
+  │   ├──/arm/libmdbx.so
+  │   └──/arm64/libmdbx.so
+  └──/osx
+      ├──/x86/libmdbx.so
+      ├──/x64/libmdbx.so
+      ├──/arm/libmdbx.so
+      └──/arm64/libmdbx.so
 ```
-Note that not all platforms are shipped. and there are many different Linux distributions, you may need build your own `libmdbx.so` to replace the one from the package.
+
 
 ## How to Use
 
